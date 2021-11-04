@@ -4,7 +4,7 @@
   $name = $_SESSION['name'];
   $hobby = $_SESSION['email'];
   $gender = $_SESSION['gender'];
-  $dbh = db_conn();[データベース接続関数]; 
+  $dbh = db_conn();
 
 try{ 
 

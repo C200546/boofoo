@@ -4,6 +4,37 @@
   $name = $_SESSION['name'];
   $hobby = $_SESSION['email'];
   $gender = $_SESSION['gender'];
+  $dbh = db_conn();[データベース接続関数]; 
+
+try{ 
+
+$sql = "INSERT INTO user (email, name, gender) VALUE (:email, :name, :gender)"; 
+
+$stmt = $pdo->prepare($sql); 
+
+$stmt->bindValue(':email', $hobby, PDO::PARAM_STR); 
+
+$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+
+$stmt->bindValue(':gender', $gender, PDO::PARAM_INT);
+    $stmt->execute(); 
+
+unset($dbh);
+
+}catch (PDOException $e){ 
+
+    echo($e->getMessage()); 
+
+    die(); 
+
+} 
+}catch (PDOException $e){ 
+
+    echo($e->getMessage()); 
+
+    die(); 
+
+} 
 ?>
 
 <!DOCTYPE html>
